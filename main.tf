@@ -1,7 +1,7 @@
 # Terraform configuration
 
 provider "aws" {
-  region = "us-west-2"
+  region = "eu-central-1"
 }
 
 module "vpc" {
@@ -27,7 +27,7 @@ module "ec2_instances" {
   name           = "my-ec2-cluster"
   instance_count = 2
 
-  ami                    = "ami-0c5204531f799e0c6"
+  ami                    = "ami-058583e313ae1a1c3"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [module.vpc.default_security_group_id]
   subnet_id              = module.vpc.public_subnets[0]
@@ -41,7 +41,7 @@ module "ec2_instances" {
 module "website_s3_bucket" {
   source = "./modules/aws-s3-static-website-bucket"
 
-  bucket_name = "<UNIQUE BUCKET NAME>"
+  bucket_name = "s3-bucket-workshop2"
 
   tags = {
     Terraform   = "true"
