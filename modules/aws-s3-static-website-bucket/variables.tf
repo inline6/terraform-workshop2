@@ -1,12 +1,12 @@
 # Input variable definitions
 
 variable "bucket_name" {
-  description = "Name of the s3 bucket. Must be unique."
+  description = "s3-bucket-workshop2"
   type = string
 }
 
 variable "tags" {
-  description = "Tags to set on the bucket."
+  description = "bucket-w2"
   type = map(string)
   default = {}
 }
